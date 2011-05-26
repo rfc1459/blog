@@ -4,7 +4,7 @@ Almost all content is licensed under a standard three-clause BSD License, with
 the following exceptions:
 
 * everything inside `_posts`, `img` and `media` is licensed under
-  the terms of [CC-BY-3.0][], with the exception of `img/facebook-36x36` which
+  the terms of [CC-BY-3.0][], with the exception of `img/facebook-36x36.png` which
   is covered by the [Facebook "f" Logo Usage
   Terms](https://www.facebook.com/brandpermissions/)
 * everything inside `import` is licensed under the terms of [GPLv2][]
