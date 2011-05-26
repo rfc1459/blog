@@ -1,0 +1,25 @@
+# Directory containing Wordpress exports
+wp_exports: wordpress-xml
+
+# Target directory
+build_dir: build
+
+# Output format: html or markdown
+target_format: markdown
+
+# Date format
+date_format: '%Y-%m-%d %H:%M:%S'
+
+# Download and relocate all images?
+download_images: False
+
+# Item types we're not interested in
+item_type_filter: { attachment, nav_menu_item }
+
+taxonomies:
+  # Filter out taxonomies
+  filter: {}
+  # Filter taxonomies entries
+  entry_filter: {category: Uncategorized}
+  # Rename taxonomies when writing jekyll output format
+  name_mapping: {category: categories, post_tag: tags}

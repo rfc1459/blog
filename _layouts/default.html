@@ -1,0 +1,85 @@
+---
+about_me:
+  - name: 'Github'
+    href: 'https://github.com/rfc1459'
+  - name: 'Bitbucket'
+    href: 'https://bitbucket.org/rfc1459'
+  - name: "L'altro blog"
+    href: 'http://www.level28.org/'
+  - name: 'Il mio profilo Steam'
+    href: 'http://steamcommunity.com/id/morpholo'
+  - name: 'Wishlist Pragmatic Bookshelf'
+    href: 'http://www.pragprog.com/wishlist/matteo-panella-74407-6f878eafcc'
+
+blogroll:
+  - name: Dreamsworld
+    rel: firend
+    href: 'http://www.dreamsworld.it/emanuele/'
+  - name: Hypnotize
+    rel: 'acquaintance colleague'
+    href: 'http://different-world.org/blog/'
+  - name: 'Johnatan Schwartz'
+    href: 'http://johnatanischwartz.wordpress.com/'
+---
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang='it' xml:lang='it' xmlns='http://www.w3.org/1999/xhtml'>
+  <head profile='http://gmpg.org/xfn/11'>
+    <meta content='IE=Edge,chrome=1' http-equiv='X-UA-Compatible' />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <title>{{ page.title }}</title>
+    <meta content='Il blog spregevole e ripugnante 2.0' name='description' />
+    <link href='/humans.txt' rel='author' />
+    <link href='/favicon.png' rel='shortcut icon' />
+    <link href='/css/screen.css' media='screen, projection' rel='stylesheet' type='text/css' />
+  </head>
+  <body>
+    <div id='container'>
+      <div id='header'>
+        <div class='left'>
+          <h1>
+            <a href='/'>Random Bullshit</a>
+          </h1>
+          <span class='tagline'>Il blog spregevole e ripugnante 2.0</span>
+        </div>
+        <ul class='buttons'>
+          <li><a href='/atom.xml' title='Feed Atom'><img alt='Atom' src='/img/feed-36x36.png' /></a></li>
+          <li><a href='https://twitter.com/rfc1459' rel='me' title='Seguimi su Twitter'><img alt='Twitter' src='http://twitter-badges.s3.amazonaws.com/t_logo-a.png' /></a></li>
+          <li><a href='https://www.facebook.com/morpholo' rel='me' title='Forse puoi seguirmi su Facebook (se abbiamo almeno un contatto in comune)'><img alt='Facebook' src='/img/facebook-36x36.png' /></a></li>
+        </ul>
+      </div>
+      <div id='content'>
+        <div id='main'>
+          {{ content }}
+        </div>
+        <div id='sidebar'>
+          {% include sidebar.html %}
+        </div>
+      </div>
+      <div id='footer'>
+        <div>
+          <ul class='buttons'>
+            <li><a href='http://creativecommons.org/licenses/by/3.0/' title='CC-BY-3.0'><img alt='CC-BY-3.0' src='http://i.creativecommons.org/l/by/3.0/88x31.png' /></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script type='text/javascript'>
+        var disqus_shortname = '{{ site.disqus_name }}';
+        var disqus_developer = {{ site.disqus_developer }};
+
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        (function() {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        })();
+    </script>
+  </body>
+</html>

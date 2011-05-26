@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<div class='blog'>
+  <h2>Archivi per il {{ page.day | remove_first:'0' }} {{ page.month | date_to_month }} {{ page.year }}</h2>
+</div>
+{% for post in paginator.posts %}
+  {% include post_partial.html %}
+{% endfor %}
+{% capture paginate_base %}/{{ page.year }}/{{ page.month }}/{{ page.day }}{% endcapture %}
+{% include pagination.html %}

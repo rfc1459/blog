@@ -1,0 +1,13 @@
+---
+layout: default
+title: "Random Bullshit"
+---
+{% if site.posts == empty %}
+Houston, abbiamo un problema...
+{% else %}
+{% for post in paginator.posts %}
+{% include post_partial.html %}
+{% endfor %}
+{% endif %}
+{% assign paginate_base = '' %}
+{% include pagination.html %}

@@ -1,0 +1,15 @@
+auto: false
+server: false
+lsi: false
+markdown: rdiscount
+pygments: true
+permalink: /:year/:month/:title
+paginate: 15
+base_uri: "http://morpheus.level28.org"
+disqus_name: "level28-morph"
+disqus_developer: 1
+category_dir: category
+category_title_prefix: "Categoria: "
+archive_title_prefix: "Archivio: "
+archive_meta_description_prefix: "Archivio: "
+exclude: ["lib", "import", "Rakefile", "config", "log", "tmp", "config.rb", "README.md", "COPYING"]

@@ -1,0 +1,9 @@
+{% assign mod_title = 'About me' %}
+{% capture mod_content %}
+<ul>
+{% for l in page.about_me %}
+  <li><a href='{{ l.href }}' rel='me'>{{ l.name }}</a></li>
+{% endfor %}
+</ul>
+{% endcapture %}
+{% include sidebar_module.html %}

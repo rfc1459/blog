@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<div class='blog'>
+  <h2><a href='{{ page.url }}'>{{ page.title }}</a></h2>
+  {% if page.date %}
+  <span class='timestamp'>{{ page.date | date_to_string }}</span>
+  {% endif %}
+  <span class='meta'>&nbsp;</span>
+  {{ content }}
+</div>

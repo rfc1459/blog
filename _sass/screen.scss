@@ -1,0 +1,193 @@
+// vim:ft=scss:
+// Main stylesheet
+
+@import "compass/reset/utilities";
+@import "solarized";
+@import "pygments";
+
+* {
+    @include reset-box-model;
+}
+
+html {
+    color-profile: sRGB;
+    rendering-intent: auto;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-family: Verdana, "Bitstream Vera Sans", sans-serif;
+    font-size: 11px;
+    @include solarized-light;
+    // Blue accent with red a:hover
+    @include accentize($blue, $red);
+}
+
+a {
+    img {
+        border: none;
+    }
+    text-decoration: none;
+}
+
+#container {
+    min-height: 100%;
+    position: relative;
+}
+
+#header {
+    padding: 24px 64px 24px 64px;
+    min-height: 64px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+ul.buttons {
+    list-style-type: none;
+    li {
+        display: block;
+        float: right;
+        margin: 0px 16px 0px 16px;
+    }
+}
+
+h1 {
+    a {
+        color: $blue;
+    }
+    font-size: 4em;
+    color: $blue;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 4px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid $base1;
+    font-weight: normal;
+}
+
+span.tagline {
+    font-size: 1.1em;
+    font-style: italic;
+    color: $base0;
+}
+
+#content {
+    margin-left: 360px;
+    padding-bottom: 100px;
+    text-align: justify;
+}
+
+#main {
+    padding-top: 8px;
+    padding-right: 200px;
+    text-align: justify;
+
+    .blog {
+        margin-bottom: 32px;
+    }
+
+    p {
+        margin: 8px 0px;
+        font-size: 1.3em;
+    }
+
+    ul, ol {
+        margin-left: 32px;
+    }
+
+    h2 {
+        margin-bottom: 8px;
+    }
+
+    .timestamp {
+        float: right;
+    }
+}
+
+#sidebar {
+    position: absolute;
+    top: 128px;
+    left: -16px;
+    padding-left: 48px;
+    height: 0px;
+    width: 280px;
+
+    div {
+        margin-bottom: 16px;
+    }
+
+    h2 {
+        color: $base00;
+    }
+
+    ol {
+        list-style-type: none;
+    }
+
+    ul {
+        list-style-type: none;
+        padding-left: 16px;
+    }
+
+    li {
+        margin-bottom: 4px;
+        clear: both;
+    }
+
+    .timestamp {
+        text-align: right;
+    }
+}
+
+.timestamp, .meta {
+    color: $base1;
+    display: block;
+
+    a {
+        font-style: italic;
+    }
+}
+
+div.highlight {
+    @include pygments;
+}
+
+pre {
+    font-family: "DejaVu Sans Mono", monospace;
+    font-size: 1.1em;
+    color: $base0;
+    margin: 10px;
+    border: 1px solid $cyan;
+    padding: 5px;
+    border-left-width: 5px;
+    overflow: auto;
+}
+
+blockquote {
+    margin: 10px;
+    padding: 5px;
+    border-top: 1px solid $base1;
+    border-bottom: 1px solid $base1;
+}
+
+#footer {
+    min-height: 32px;
+    position: absolute;
+    bottom: 24px;
+    width: 100%;
+
+    div {
+        padding-left: 64px;
+        padding-right: 64px;
+    }
+}

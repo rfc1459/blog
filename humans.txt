@@ -1,0 +1,15 @@
+---
+layout: nil
+---
+/* TEAM */
+      One man band: Matteo Panella
+      Contact: morpheus [at] level28.org
+      Twitter: @rfc1459
+      From: L'Aquila, Italy
+
+/* SITE */
+      Last update: {{ '%Y/%m/%d' | now }}
+      Language: Italian
+      Doctype: XHTML 1.0 Strict
+      Engine: Jekyll <http://jekyllrb.com>
+      Markdown renderer: RDiscount <https://github.com/rtomayko/rdiscount>

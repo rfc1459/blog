@@ -1,0 +1,9 @@
+{% assign mod_title = 'Categorie' %}
+{% capture mod_content %}
+<ul>
+{% for category in site.iterable.categories %}
+  <li><a href='/category/{{ category.name | slugify }}'>{{ category.name }}</a></li>
+{% endfor %}
+</ul>
+{% endcapture %}
+{% include sidebar_module.html %}

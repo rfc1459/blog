@@ -1,0 +1,13 @@
+<p id='paginate'>
+  {% if paginator.next_page %}
+    <span class="left"><a href="{{ paginate_base }}/page/{{ paginator.next_page }}">&laquo; Post Precedenti</a></span>
+  {% endif %}
+
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page > 1 %}
+      <span class="right"><a href="{{ paginate_base }}/page/{{ paginator.previous_page }}">Post Successivi &raquo;</a></span>
+    {% else %}
+      <span class="right"><a href="{{ paginate_base }}/">Post Successivi &raquo;</a></span>
+    {% endif %}
+  {% endif %}
+</p>
