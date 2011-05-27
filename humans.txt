@@ -8,7 +8,7 @@ layout: nil
       From: L'Aquila, Italy
 
 /* SITE */
-      Last update: {{ '%Y/%m/%d' | now }}
+      {% render_time Last update: %}
       Language: Italian
       Doctype: XHTML 1.0 Strict
       Engine: Jekyll <http://jekyllrb.com>

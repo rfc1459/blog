@@ -28,12 +28,52 @@ module Liquid
       categories.each { |cat| catlinks << "<a href='/category/#{slugify(cat)}'>#{cat}</a>" }
       catlinks.join(', ')
     end
+  end
 
-    def now(fmt)
-      Time.now.strftime(fmt)
+  module ExtendedTags
+
+    class MathJaxInlineBegin < Liquid::Tag
+      def render(context)
+        '<span class="MathJax_Preview">[math]</span><script type="math/tex">'
+      end
+    end
+
+    class MathJaxInlineEnd < Liquid::Tag
+      def render(context)
+        '</script>'
+      end
+    end
+
+    class MathJaxBlockBegin < Liquid::Tag
+      def render(context)
+        '<p><span class="MathJax_Preview">[math]</span><script type="math/tex; mode=display">'
+      end
+    end
+
+    class MathJaxBlockEnd < Liquid::Tag
+      def render(context)
+        '</script></p>'
+      end
+    end
+
+    class RenderTimeTag < Liquid::Tag
+      def initialize(tag_name, text, tokens)
+        super
+        @text = text
+      end
+
+      def render(context)
+        "#{@text} #{Time.now}"
+      end
     end
   end
 
   Liquid::Template.register_filter(ExtendedFilters)
 
+  # Register tags
+  Liquid::Template.register_tag('math', ExtendedTags::MathJaxBlockBegin)
+  Liquid::Template.register_tag('endmath', ExtendedTags::MathJaxBlockEnd)
+  Liquid::Template.register_tag('m', ExtendedTags::MathJaxInlineBegin)
+  Liquid::Template.register_tag('em', ExtendedTags::MathJaxInlineEnd)
+  Liquid::Template.register_tag('render_time', ExtendedTags::RenderTimeTag)
 end
