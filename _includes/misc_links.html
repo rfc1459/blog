@@ -1,0 +1,9 @@
+{% assign mod_title = 'Link vari' %}
+{% capture mod_content %}
+<ul>
+{% for l in page.misc_links %}
+  <li><a href="{{ l.href }}" target="_blank">{{ l.name }}</a></li>
+{% endfor %}
+</ul>
+{% endcapture %}
+{% include sidebar_module.html %}
