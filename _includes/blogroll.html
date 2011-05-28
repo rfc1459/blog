@@ -2,7 +2,7 @@
 {% capture mod_content %}
 <ul>
 {% for l in page.blogroll %}
-  <li><a href="{{ l.href }}" target="_blank"{% if l.rel %} rel="{{ l.rel }}"{% endif %}>{{ l.name }}</a></li>
+  <li><a href="{{ l.href }}"{% if l.rel %} rel="{{ l.rel }}"{% endif %}>{{ l.name }}</a></li>
 {% endfor %}
 </ul>
 {% endcapture %}
