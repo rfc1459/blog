@@ -11,9 +11,11 @@ layout: default
   <h3>Commenti</h3>
   <div id="disqus_thread"></div>
   <script type="text/javascript">
+  //<![CDATA[
     var disqus_identifier = '{{ page.disqus_id }}';
     var disqus_url = '{{ site.base_uri }}{{ page.url}}';
     var disqus_title = '{{ page.title | escape_javascript }}';
+  //]]>
   </script>
   <noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
   <a href='http://disqus.com' class='dsq-brlink'>blog comments powered by <span class='logo-disqus'>Disqus</span></a>

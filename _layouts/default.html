@@ -57,11 +57,7 @@ misc_links:
     <link href='/humans.txt' rel='author' />
     <link href='/favicon.png' rel='shortcut icon' />
     <link href='/css/screen.css' media='screen, projection' rel='stylesheet' type='text/css' />
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-      MathJax.Hub.Config({ extensions: ["tex2jax.js"],
-                           jax: ["input/TeX", "output/HTML-CSS"]
-                        });
-    </script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   </head>
   <body>
     <div id='container'>
@@ -96,6 +92,7 @@ misc_links:
       </div>
     </div>
     <script type='text/javascript'>
+    //<![CDATA[
         var disqus_shortname = '{{ site.disqus_name }}';
         var disqus_developer = {{ site.disqus_developer }};
 
@@ -111,6 +108,7 @@ misc_links:
             s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
             (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
         })();
+    //]]>
     </script>
   </body>
 </html>
