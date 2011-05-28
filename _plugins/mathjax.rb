@@ -8,7 +8,7 @@ module Jekyll
     # Detect if we need to use block display style
     SYNTAX = /(display)?/
 
-    def initialize(tag_name, markup,tokens)
+    def initialize(tag_name, markup, tokens)
       super
       if markup =~ SYNTAX
         if defined? $1
@@ -37,7 +37,7 @@ module Jekyll
     def render_display(context, math)
       # Since this is a block style formula, wrap it in a paragraph
       <<-HTML
-<p>
+<p style="text-align: center">
   <span class="MathJax_Preview">#{h(math).strip}</span><script type="math/tex; mode=display">
   #{math.strip}
   </script>
