@@ -12,4 +12,4 @@ category_dir: category
 category_title_prefix: "Categoria: "
 archive_title_prefix: "Archivio: "
 archive_meta_description_prefix: "Archivio: "
-exclude: ["lib", "import", "Rakefile", "config", "log", "tmp", "config.rb", "README.md", "COPYING"]
+exclude: ["lib", "import", "Rakefile", "config", "log", "tmp", "config.rb", "README.md", "COPYING", "tidy.conf"]
