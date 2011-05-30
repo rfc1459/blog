@@ -30,21 +30,15 @@ module Jekyll
     end
 
     def render_inline(context, math)
-      # Render inline - we cannot generate a CDATA elementa here because rdiscount would
-      # screw up the whole paragraph flow.
-      "<span class=\"MathJax_Preview\">#{h(math).strip}</span><script type=\"math/tex\">#{math.strip}</script>"
+      "<script type=\"math/tex\">#{h(math).strip}</script>"
     end
 
     def render_display(context, math)
-      # Since this is a block style formula, wrap it in a paragraph
-      # Also, wrap the source into a CDATA element to prevent mangling by HTMLTidy
       <<-HTML
 <p style="text-align: center">
-  <span class="MathJax_Preview">#{h(math).strip}</span><script type="math/tex; mode=display">
-%<![CDATA[
-  #{math.strip}
-%]]>
-  </script>
+<script type="math/tex; mode=display">
+#{h(math).strip}
+</script>
 </p>
       HTML
     end
@@ -52,22 +46,26 @@ module Jekyll
 
   # Ugly monkeypatch for inline formula post-processing
   class Site
-    alias_method :original_write, :write
-    def write
-      # Before writing, post-process posts and pages
-      self.posts.each do |p|
-        fix_inline_math(p)
+    alias_method :original_render, :render
+    def render
+      original_render
+
+      # Post-process posts and pages
+      self.posts.each do |post|
+        fix_math(post)
       end
-      self.pages.each do |p|
-        fix_inline_math(p)
+
+      self.pages.each do |page|
+        fix_math(page)
       end
-      # Now write everything
-      original_write
     end
 
-    def fix_inline_math(page)
-      # Inject a CDATA element with appropriate LaTeX comment delimiters inside inline formulas
-      page.output.gsub!(/(<script type="math\/tex">)(.*?)(<\/script>)/m, "\\1\n%<![CDATA[\n\\2\n%]]>\n\\3")
+    def fix_math(p)
+      # Get rid of the <script> tags and add proper MathJax delimiters
+      # Inline math
+      p.output.gsub!(/(<script type="math\/tex">)(.*?)(<\/script>)/m, '\( \2 \)')
+      # Display-style math
+      p.output.gsub!(/(<script type="math\/tex; mode=display">\n)(.*?)(<\/script>)/m, "$$\n\\2$$")
     end
   end
 end
