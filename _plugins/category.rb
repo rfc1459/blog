@@ -21,7 +21,7 @@ module Jekyll
 
     def generate(site)
       if site.layouts.key? 'category_index'
-        dir = site.config['category_dir'] || 'categories'
+        dir = '/' + (site.config['category_dir'] || 'categories')
         site.categories.keys.each do |category|
           write_category_index(site, File.join(dir, slugify(category)), category)
         end
