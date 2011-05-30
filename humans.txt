@@ -11,5 +11,11 @@ layout: nil
       {% render_time Last update: %}
       Language: Italian
       Doctype: XHTML 1.0 Strict
-      Engine: Jekyll <http://jekyllrb.com>
-      Markdown renderer: RDiscount <https://github.com/rtomayko/rdiscount>
+      Engine: Jekyll <http://jekyllrb.com/>
+      Markdown rendering: RDiscount <https://github.com/rtomayko/rdiscount>
+      LaTeX rendering: MathJax <http://www.mathjax.org/>
+      Comment management: DISQUS <http://disqus.com/>
+      Color scheme: Solarized <https://github.com/altercation/solarized>
+      CSS: Compass <http://compass-style.org/>
+      HTML cleanup: HTML Tidy <http://tidy.sourceforge.net/>
+      Brought to you by: Vim, TextMate, git, bash and The GIMP.
