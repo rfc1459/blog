@@ -5,6 +5,8 @@
 @import "solarized";
 @import "pygments";
 
+$main_fontsize: 1.3em;
+
 * {
     @include reset-box-model;
 }
@@ -47,6 +49,10 @@ a {
 
 .right {
     float: right;
+}
+
+.strikethrough {
+    text-decoration: line-through;
 }
 
 ul.buttons {
@@ -98,11 +104,12 @@ span.tagline {
 
     p {
         margin: 8px 0px;
-        font-size: 1.3em;
+        font-size: $main_fontsize;
     }
 
     ul, ol {
         margin-left: 32px;
+        font-size: $main_fontsize;
     }
 
     h2 {
