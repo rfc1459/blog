@@ -44,7 +44,7 @@ desc 'Pre-compress all files with gzip'
 task :compress do
   puts '* Compressing files'
   %w(html css js xml txt).each do |type|
-    system "find #{site} -name '*.#{type}' -type f -exec bash -c \"gzip -c '{}' > '{}.gz'\" \\;"
+    system "find #{site} -name '*.#{type}' -type f -exec bash -c \"gzip -9 -c '{}' > '{}.gz'; touch -c -r '{}' '{}.gz'\" \\;"
   end
 end
 
