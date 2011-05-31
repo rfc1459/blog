@@ -30,7 +30,7 @@ module Liquid
         doc = Nokogiri::HTML::DocumentFragment.parse text.split(delimiter)[0]
         rt = doc.inner_text
       else
-        rt = html_truncatewords(:text => text, :ellipsis => '[...]', :max_length => 300)
+        rt = truncate_html(:text => text, :ellipsis => '[...]', :max_length => 300)
       end
       rt.gsub(/\n/, ' ').gsub(/\s{2,}/, ' ')
     end
@@ -45,7 +45,7 @@ module Liquid
       catlinks.join(', ')
     end
 
-    def html_truncatewords(params)
+    def truncate_html(params)
       text = params[:text] || raise("text parameter is required")
       max_length = params[:max_length] || 200
       ellipsis = params[:ellipsis] || ""
@@ -53,7 +53,7 @@ module Liquid
       doc = Nokogiri::HTML::DocumentFragment.parse text
       content_length = doc.inner_text.length
       actual_length = max_length - ellipsis_length
-      content_length > actual_length ? doc.truncate(actual_length).inner_text + ellipsis : doc.inner_text
+      content_length > actual_length ? doc.truncate(actual_length).inner_text + ' ' + ellipsis : doc.inner_text
     end
   end
 
@@ -88,7 +88,8 @@ module Liquid
 
     module TextNode
       def truncate(max_length)
-        Nokogiri::XML::Text.new(content[0..(max_length - 1)], parent)
+        # Approximate truncation at nearest space
+        Nokogiri::XML::Text.new(content.gsub(/^(.{#{max_length}}[^\s]*)(?:.*)/m, '\1'), parent)
       end
     end
   end
