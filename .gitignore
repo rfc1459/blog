@@ -5,3 +5,4 @@ _site/
 ._*
 .sass-cache/
 stuff/
+/google*.html
