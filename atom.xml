@@ -1,0 +1,25 @@
+---
+layout: nil
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Random Bullshit</title>
+  <link href="{{ site.base_uri }}{{ page.url }}" rel="self" />
+  <link href="{{ site.base_uri }}/" />
+  <updated>{{ site.time | date_to_xmlschema }}</updated>
+  <id>{{ site.base_uri }}/</id>
+  <author>
+    <name>Matteo Panella</name>
+    <email>morpheus@level28.org</email>
+  </author>
+
+  {% for post in site.posts limit:site.paginate %}
+  <entry>
+    <title>{{ post.title | xml_escape }}</title>
+    <link href="{{ site.base_uri }}{{ post.url }}" />
+    <updated>{{ post.date | date_to_xmlschema }}</updated>
+    <id>{{ site.base_uri }}{{ post.url }}</id>
+    <content type="html">{{ post.content | fix_math | xml_escape }}</content>
+  </entry>
+  {% endfor %}
+</feed>
