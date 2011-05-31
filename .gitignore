@@ -4,5 +4,5 @@ _site/
 .DS_Store
 ._*
 .sass-cache/
-stuff/
+/stuff/
 /google*.html
