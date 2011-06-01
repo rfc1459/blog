@@ -7,7 +7,7 @@ layout: nil
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
           http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-{% for page in site.pages %}{% unless page.url contains '.xml' or page.url contains 'errors' %}
+{% for page in site.pages %}{% unless page.url contains '.xml' %}
 <url>
   <loc>{{ site.base_uri }}{{ page.url | remove:'index.html' }}</loc>
   <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
