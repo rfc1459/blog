@@ -37,7 +37,7 @@ end
 desc 'Clean up generated HTML files with tidy'
 task :tidy do
   puts '* Running tidy'
-  system "find #{site} -name '*.html' -not -name 'google*.html' -type f -exec tidy -config tidy.conf {} \\;"
+  system "find #{site} -name '*.html' -not -name 'google*.html' -type f -exec tidy -config meta/tidy.conf {} \\;"
 end
 
 desc 'Pre-compress all files with gzip'
