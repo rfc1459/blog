@@ -68,6 +68,45 @@ module Liquid
         "#{@text} #{Time.now}"
       end
     end
+
+    class AudioPlayerTag < Liquid::Tag
+      SYNTAX = /(#{Liquid::QuotedFragment}+)/
+      def initialize(tag_name, markup, tokens)
+        if markup =~ SYNTAX
+          @file_url = $1
+          @attributes = {}
+          markup.scan(Liquid::TagAttributes) do |key, value|
+            @attributes[key] = value
+          end
+          unless @attributes.has_key? 'id'
+            raise Liquid::SyntaxError.new("Error in tag 'audio' - Valid syntax: audio 'url' id:number")
+          end
+        else
+          raise Liquid::SyntaxError.new("Error in tag 'audio' - Valid syntax: audio 'url' id:number")
+        end
+
+        super
+      end
+
+      def render(context)
+        id = @attributes.delete 'id'
+        attrs = ["soundFile: \"#{@file_url}\""]
+        @attributes.each do |k, v|
+          attrs.push "#{k}: #{v}"
+        end
+        attrs = attrs.join ",\n    "
+        <<-HTML
+<p id="audioplayer_#{id}"><a href="#{@file_url}">#{@file_url}</a></p>
+<script type="text/javascript">
+//<![CDATA[
+  AudioPlayer.embed("audioplayer_#{id}", {
+    #{attrs}
+  });
+//]]>
+</script>
+        HTML
+      end
+    end
   end
 
   module NokogiriTruncator
@@ -104,4 +143,5 @@ module Liquid
 
   # Register tags
   Liquid::Template.register_tag('render_time', ExtendedTags::RenderTimeTag)
+  Liquid::Template.register_tag('audio', ExtendedTags::AudioPlayerTag)
 end
